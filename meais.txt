@@ -1,0 +1,445 @@
+#include "stdafx.h"
+#include "stdlib.h"
+#include <time.h>
+#include <iostream>
+#include <string>
+#include "conio.h"
+#include <fstream>
+
+using namespace std;
+
+
+
+struct restaurantess{
+	    string nombre[100];
+		string ubicacion[100];
+		string especialidad[100];
+		string premio[100];
+		int contacto[100];}
+restaurantess[9];
+
+struct cuentas{
+	string nombre[100];
+	string contraseña[100];
+}cuentas;
+
+struct opiniones{
+	string opinion[100];
+}opiniones[9];
+
+struct bucles_otros{
+	int Vinfo;
+	int a[9];
+	int O;
+}bucles_otros;
+
+void resgistrar2(int f);
+void mapa();
+void opinionO(int o,int z);
+void elegir_zona(int z);
+void restaurantes(int z,int &j,int &o);
+void generar_codigoN();
+void registrar(int &f);
+void infoR(int z,int j,int &o);
+void lugares(int z);
+void cuenta(int &g,int &o);
+
+int main()
+{int z,h,f=0,g=0,o=0,j=0;
+
+
+system("color 1E");
+
+do{
+	system("cls");
+cout<<"///////////////////////////////////////////////////////////////////////////////"<<endl;
+cout<<"////////3333333333/////////////////////////////////////////////////////////////"<<endl;
+cout<<"/////333/////////333///////////////////////////////////////////////////////////"<<endl;
+cout<<"///33///////////////33/////////////////////////////////////////////////////////"<<endl;
+cout<<"/333////mm/////mm////33////////////////////3///////////////////////////////////"<<endl;
+cout<<"/3/////mmmm///mmmm////33////////////////33/////////////////////////////////////"<<endl;
+cout<<"//////mm/mm///mm/mm////33/////////33333////////////////////////////////////////"<<endl;
+cout<<"//////mm//mm/mm//mm////33///////33///////////////////////l/////////////////////"<<endl;
+cout<<"/////mm///mm/mm///mm////33////333//////////////////////ll//////////////////////"<<endl;
+cout<<"/////mm////mm/////mm//////3333//////////////////////llll/////////////////iii///"<<endl;
+cout<<"////mm/////////////mm//////////////////////////////lllll///////////////////////"<<endl;
+cout<<"////mm/////////////mm////////eeeeee//////aaaaaa/////////////aaaaaa///////iii///"<<endl;
+cout<<"///mm///////////////mm/////ee//////e///////////a//////////////////a//////iii///"<<endl;
+cout<<"///mm///////////////mm////ee//eeee////////aaaaa/a////////////aaaaa/a/////iii///"<<endl;
+cout<<"//mm/////////////////mm////ee///////////aa/////aa//////////aa/////aa/////iii///"<<endl;
+cout<<"//mm/////////////////mm//////eeeeee///////aaaaaa/a///////////aaaaaa/a////iii///"<<endl;
+cout<<"///////////////////////////////////////////////////////////////////////////////"<<endl;
+cout<<"///////////////////////////////////////////////////////////////////////////////"<<endl;
+cout<<"///////////////////////////////////////////////////////////////////////////////"<<endl;
+                                                                                                    
+cout<<"----------------------"<<endl;
+cout<<"----1-.Consumidor-----"<<endl;
+cout<<"----2-.Restaurante----"<<endl;
+if(g==1)
+cout<<"----3-.Cerrar sesion--"<<endl;
+cout<<"----0-.Salir----------"<<endl;
+cout<<"----------------------"<<endl;
+cin>>h;
+ system("cls");
+switch(h){
+case 1:
+	if (g==0){
+	cuenta(g,o);
+	system("cls");}
+	do{
+do{
+mapa();
+cin>>z;
+ system("cls");
+elegir_zona(z);
+
+}while (z<1);}while (z>9);
+restaurantes (z,j,o);
+ system("cls");
+
+cout<<"Gracias por ayudarnos a mejorar, tu opinion es muy importante, no olvides pasar por tu premio"<<endl;
+generar_codigoN();
+
+
+getch();
+break;
+case 2:
+	 registrar(f);
+	 cout<<"Gracias por registrarte con nosotros, en breves confirmaremos sus datos"<<endl;
+
+	 getch();
+	 break;
+case 3:
+	g=0;
+case 0:
+	cout<<"Gracias por usar nuestra app, que tenga un buen dia"<<endl;
+	 system("cls");
+	break;
+default:
+	cout<<"Error, opcion invalida"<<endl;
+			break;
+
+
+}}while(h!=0);
+getch();
+	return 0;
+
+
+}
+void mapa(){
+	cout<<"Señale el lugar del mapa donde desea usar la app"<<endl;
+	cout<<"/////////////////////////////-////////////////////////////////"<<endl;
+	cout<<"//////////////////////////----////////////////////////////////"<<endl;
+	cout<<"//////////////////////--------////////////////////////////////"<<endl;
+	cout<<"//////////////---------(9)----////////////////////////////////"<<endl;
+	cout<<"///////////////----------------///////////////////////////////"<<endl;
+	cout<<"////////////////------------------////////////////////////////"<<endl;
+	cout<<"////////////////---------------------/////////////////////////"<<endl;
+	cout<<"//////////////-------------------------///////////////////////"<<endl;
+	cout<<"/////////////------------------------------///////////////////"<<endl;
+	cout<<"//////////////--------------------(8)-------//////////////////"<<endl;
+	cout<<"/////////////-(2)-------------------------------//////////////"<<endl;
+	cout<<"////////////--------------------------------------////////////"<<endl;
+	cout<<"////////////-------------------------------------/////////////"<<endl;
+	cout<<"//////////----------------------------------------////////////"<<endl;
+	cout<<"////////////--------------------------------------////////////"<<endl;
+	cout<<"/////////////-------------------------------------////////////"<<endl;
+	cout<<"///////////---------------(3)----------------------------/////"<<endl;
+	cout<<"//////////---------------------------------(1)---------///////"<<endl;
+	cout<<"/////////-----------------------------------------------//////"<<endl;
+	cout<<"///////////----------------------------------------------/////"<<endl;
+	cout<<"////////////--(7)-----------------------------------------////"<<endl;
+	cout<<"/////////////----------------------------------------------///"<<endl;
+	cout<<"//////////////--------------------------------------------////"<<endl;
+	cout<<"//////////////------------------------------///////-------////"<<endl;
+	cout<<"//////////////----------------(6)-------///////////////---////"<<endl;
+	cout<<"//////////////-----------------------/////////////////////-///"<<endl;
+	cout<<"///////////////-----------------------////////////////////////"<<endl;
+	cout<<"///////////////--(5)---------(4)-----/////////////////////////"<<endl;
+	cout<<"///////////////----------------------/////////////////////////"<<endl;
+	cout<<"////////////////------/---------////-/////////////////////////"<<endl;
+	cout<<"////////////////-----/////----////////////////////////////////"<<endl;
+	cout<<"/////////////////--////////--/////////////////////////////////"<<endl;
+	cout<<"////////////////////////////-/////////////////////////////////"<<endl;
+}
+void elegir_zona(int z){
+
+
+	switch(z){
+	case 1:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+		case 2:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+
+		case 3:
+		cout<<"Elije a donde quieres ir: "<<endl;
+	
+		
+		break;
+		case 4:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+		case 5:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+		case 6:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+		case 7:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+	
+		break;
+		case 8:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+		case 9:
+		cout<<"Elije a donde quieres ir: "<<endl;
+		
+		
+		break;
+		default:
+			cout<<"Error, opcion invalida"<<endl;
+			break;
+	}}
+void generar_codigoN(){
+		srand(time(NULL));
+		int d;
+		d=1111111111 + rand() % (9999999999 - 1111111111);
+		cout<<" Tu codigo es "<<d<<endl;
+	}
+void restaurantes(int z,int &j,int &o){
+	
+	do{
+		system("cls");
+		bucles_otros.Vinfo=0;
+		do{
+		do{lugares(z);
+		
+		cout<<"Quiero ver la opcion :"; cin>>j;
+		}while(j<1);}while(j>5);
+		cout<<restaurantess[z].nombre[j-1]<<" ofrece "<<restaurantess[z].premio[j-1]<<" , por ir y dar tu opinion"<<endl;
+			infoR(z,j,o);
+		
+		}while(bucles_otros.Vinfo==1);}
+void opinionO(int o,int z){
+float p=0;
+
+do{
+do{
+		cout<<"Comentanos tu expreciencia, entre el 0 y 5, que tal ha sido tu expreciencia?"<<endl; 
+		
+			cin>>p;
+			cin.ignore();
+		if(p>=0 && p<=1){
+			cout<<"Cuentanos el porque de tu pesima expreciencia y en que podemos mejorar: "<<endl;
+			getline(cin,opiniones[z].opinion[o-1]);
+			
+		}
+		else{
+		if(p>1 && p<=2){
+			cout<<"Cuentanos el porque de tu mala expreciencia y en que podemos mejorar: "<<endl;
+		getline(cin,opiniones[z].opinion[o-1]);
+			
+		}
+		else{
+		if(p>2 && p<=3){
+			cout<<"Cuentanos el porque de tu expreciencia y en que podemos mejorar: "<<endl;
+			getline(cin,opiniones[z].opinion[o-1]);
+			
+		}
+		else{
+		if(p>3 && p<=4){
+			cout<<"Cuentanos el porque de tu buena expreciencia y en que podemos mejorar o que crees que debemos mantener: "<<endl;
+			getline(cin,opiniones[z].opinion[o-1]);
+			
+		}
+		else{
+		if(p>4 && p<=5){
+			cout<<"Cuentanos el porque de tu excelente expreciencia, si debemos mejorar algo y que crees que debemos mantener: "<<endl;
+			getline(cin,opiniones[z].opinion[o-1]);
+			
+		}
+		else{
+			cout<<"Error numero invalido"<<endl;
+		}}}}}}while (p<0);}while (p>5);
+		
+	
+}
+void registrar(int &f){
+	
+	
+	do{
+		do{
+	cout<<"-----------------------------------------------------------------------"<<endl;
+    cout<<"Porfavor si desea registar su local, debera llenar los siguientes datos: "<<endl;
+    cout<<"-señale en que lugar del mapa se encuentra su local"<<endl;
+	cout<<"/////////////////////////////-////////////////////////////////"<<endl;
+	cout<<"//////////////////////////----////////////////////////////////"<<endl;
+	cout<<"//////////////////////--------////////////////////////////////"<<endl;
+	cout<<"//////////////---------(9)----////////////////////////////////"<<endl;
+	cout<<"///////////////----------------///////////////////////////////"<<endl;
+	cout<<"////////////////------------------////////////////////////////"<<endl;
+	cout<<"////////////////---------------------/////////////////////////"<<endl;
+	cout<<"//////////////-------------------------///////////////////////"<<endl;
+	cout<<"/////////////------------------------------///////////////////"<<endl;
+	cout<<"//////////////--------------------(8)-------//////////////////"<<endl;
+	cout<<"/////////////-(2)-------------------------------//////////////"<<endl;
+	cout<<"////////////--------------------------------------////////////"<<endl;
+	cout<<"////////////-------------------------------------/////////////"<<endl;
+	cout<<"//////////----------------------------------------////////////"<<endl;
+	cout<<"////////////--------------------------------------////////////"<<endl;
+	cout<<"/////////////-------------------------------------////////////"<<endl;
+	cout<<"///////////---------------(3)----------------------------/////"<<endl;
+	cout<<"//////////---------------------------------(1)---------///////"<<endl;
+	cout<<"/////////-----------------------------------------------//////"<<endl;
+	cout<<"///////////----------------------------------------------/////"<<endl;
+	cout<<"////////////--(7)-----------------------------------------////"<<endl;
+	cout<<"/////////////----------------------------------------------///"<<endl;
+	cout<<"//////////////--------------------------------------------////"<<endl;
+	cout<<"//////////////------------------------------///////-------////"<<endl;
+	cout<<"//////////////----------------(6)-------///////////////---////"<<endl;
+	cout<<"//////////////-----------------------/////////////////////-///"<<endl;
+	cout<<"///////////////-----------------------////////////////////////"<<endl;
+	cout<<"///////////////--(5)---------(4)-----/////////////////////////"<<endl;
+	cout<<"///////////////----------------------/////////////////////////"<<endl;
+	cout<<"////////////////------/---------////-/////////////////////////"<<endl;
+	cout<<"////////////////-----/////----////////////////////////////////"<<endl;
+	cout<<"/////////////////--////////--/////////////////////////////////"<<endl;
+	cout<<"////////////////////////////-/////////////////////////////////"<<endl;
+	cin>>f;
+	cin.ignore();
+	system("cls");
+	if(f<=9){
+		if(f>=1){
+			resgistrar2(f);}}
+	
+	
+	
+}while(f>9);}while(f<1);
+}
+void resgistrar2(int f){
+	cout<<"-Nombre del restaurante-"<<endl;
+	getline(cin,restaurantess[f].nombre[bucles_otros.a[f]]);
+
+	cout<<"-Ubicacion del lugar"<<endl;
+    getline(cin,restaurantess[f].ubicacion[bucles_otros.a[f]]);
+	
+	cout<<"-Especialidad del lugar"<<endl;
+	getline(cin,restaurantess[f].especialidad[bucles_otros.a[f]]);
+	 
+	cout<<"-Recompensa que piensa ofrecer"<<endl;
+	getline(cin,restaurantess[f].premio[bucles_otros.a[f]]);
+	
+	cout<<"-Numero de contacto"<<endl;
+	cin>>restaurantess[f].contacto[bucles_otros.a[f]];
+	bucles_otros.a[f]=bucles_otros.a[f]+1;
+
+}
+void lugares(int z){
+	for (int l=0;l<bucles_otros.a[z];l++){
+	cout<<l+1<<".-"<<restaurantess[z].nombre[l]<<endl;
+		
+	}}
+void infoR(int z,int j,int &o){
+		int v;
+
+		do{
+			do{
+				 system("cls");
+				 cout<<"-------------------------------------------------------------------------------"<<endl;
+				 cout<<restaurantess[z].nombre[j-1]<<" se especializa en "<<restaurantess[z].especialidad[j-1]<<endl;
+				 cout<<"Su direccion es "<<restaurantess[z].ubicacion[j-1]<<" y su numero de contacto es "<<restaurantess[z].contacto[j-1]<<endl;
+				 cout<<"-------------1.-Desea ver las opiniones y reseñas del local--------------------"<<endl;
+				 cout<<"-------------2.-Desea dar su opinion sobre el local y reclamar un premio-------"<<endl;
+				 cout<<"-------------0.-Regresar a ver otros locales-----------------------------------"<<endl;
+				 cin>>v;
+				 switch(v){
+				 case 1:
+					for(int i=0;i<=o-1;i++){
+					cout<<"--------------------------------------------------------------------------"<<endl;
+					 cout<<cuentas.nombre[i]<<endl;
+					 cout<<opiniones[z].opinion[i]<<endl;}
+					 getch();
+					 v=4;
+					 break;
+				 case 2:
+					 opinionO(o,z);
+					 break;
+				 case 0:
+					 bucles_otros.Vinfo=1;
+					 break;
+				 default: 
+					 cout<<"Error opcion invalida"<<endl;
+					 break;
+			
+				 
+				 }}while(v<0);}while(v>2);}
+void cuenta(int &g,int &o){
+	int w,v;
+	string intentoN;
+	string intentoc;
+	do{
+	do{ 
+		
+	cout<<"-----------------------------------------------"<<endl;
+	cout<<"------------1.-Quiero registrarme--------------"<<endl;
+	cout<<"------------2.-Quiero iniciar secion-----------"<<endl;
+	cout<<"-----------------------------------------------"<<endl;
+	cin>>w;
+	switch(w){
+	case 1:
+		system("cls");
+	cin.ignore();
+	cout<<"Ingrese su nombre de usuario"<<endl;
+	getline(cin,cuentas.nombre[o]);
+	cout<<"Ingrese su contraseña"<<endl;
+	getline(cin,cuentas.contraseña[o]);
+	cout<<"Gracias por su registro, ya puede usar la app sin restriccion "<<cuentas.nombre[o]<<endl;
+	o=o+1;
+	g=1;
+		break;
+	case 2:
+		do{
+			system("cls");
+		cin.ignore();
+		cout<<"Ingrese su nombre de usuario"<<endl;
+		getline(cin,intentoN);
+		cout<<"Ingrese su contraseña"<<endl;
+		getline(cin,intentoc);
+		for(int lp=0;lp<o;lp++){
+		if(cuentas.nombre[lp]==intentoN ){
+			if(cuentas.contraseña[lp]==intentoc){
+				cout<<"Sesion iniciada, buenos dias "<<cuentas.nombre[lp]<<endl;
+				g=1;
+				v=0;
+				
+			}}}
+		for(int lp=0;lp<o;lp++){
+		if(cuentas.nombre[lp]!=intentoN ){
+			if(cuentas.contraseña[lp]!=intentoc){
+		cout<<"Usuario o contraseña incorrectos"<<endl;
+		v=1;}}}
+			
+			}while(v>0);
+	
+		break;
+	default:
+		system("cls");
+		cout<<"Error opcion invalida"<<endl;
+		break;}}while(w<1);}while (w>2);
+getch();}
